@@ -20,7 +20,6 @@ export default {
         page: 1,
         size: 0,
         exact: {
-          domain: 'dss2'
         },
         fuzzy: {}
       }

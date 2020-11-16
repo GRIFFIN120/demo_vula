@@ -32,7 +32,7 @@ export default {
     },
     size: {
       type: Number,
-      default: 10
+      default: 20
     }
   },
   data () {
@@ -73,7 +73,7 @@ export default {
         this.$message.error('上传文件只能是 ' + this.accept + ' 格式!')
       }
       if (!isLt2M) {
-        this.$message.error('上传文件大小不能超过 2MB!')
+        this.$message.error('上传文件大小不能超过 ' + this.size + 'MB!')
       }
       const flag = isJPG && isLt2M
       if (flag) {
