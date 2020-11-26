@@ -1,5 +1,5 @@
 module.exports = {
-  title: '国家公园综合管理系统',
+  title: '准噶尔盆地克拉美丽气田复杂火山岩性快速识别系统',
   // title: '页岩气开发群决策支持平台',
   // baseURL: 'http://120.27.61.185:8012',
   baseURL: 'http://localhost:8003',
