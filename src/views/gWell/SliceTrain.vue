@@ -21,9 +21,9 @@
     </BaseDialog>
 
     <BaseTable ref="table" :entity="entity" :type="type" :search="search" >
-      <template v-if="auth" #operation="data">
+      <template  #operation="data">
         <!--    重新上传-按钮  -->
-        <el-tooltip class="item" effect="light" content="数据上传" placement="top">
+        <el-tooltip v-if="auth" class="item" effect="light" content="数据上传" placement="top">
           <el-button
             @click="$refs.dialog.open(data.row)"
             size="mini" type="success"  circle plain><i class="fa fa-upload"></i></el-button>

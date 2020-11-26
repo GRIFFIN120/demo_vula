@@ -41,7 +41,7 @@ export default {
       if (!value) {
         return callback(new Error('邮箱不能为空'))
       }
-      if (value === 'admin') return callback()
+      if (value === 'admin' || value === 'test') return callback()
       setTimeout(() => {
         if (mailReg.test(value)) {
           callback()
@@ -52,8 +52,8 @@ export default {
     }
     return {
       loginForm: {
-        username: '78230696@qq.com',
-        password: '19870120'
+        username: 'test',
+        password: '12345678'
       },
       loginRules: {
         username: [

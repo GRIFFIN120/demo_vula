@@ -10,7 +10,7 @@
     </BaseDialog>
 
     <BaseTable ref="table" :entity="entity" :type="type" :search="search" >
-      <template v-if="auth" #operation="data">
+      <template  #operation="data">
 
         <el-tooltip class="item" effect="light" content="查看训练集" placement="top">
           <el-button
