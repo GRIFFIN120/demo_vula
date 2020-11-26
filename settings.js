@@ -2,7 +2,7 @@ module.exports = {
   title: '国家公园综合管理系统',
   // title: '页岩气开发群决策支持平台',
   // baseURL: 'http://120.27.61.185:8012',
-  baseURL: 'http://localhost:8001',
+  baseURL: 'http://localhost:8003',
   system_menu: {
     id: '-1',
     name: '系统管理',
@@ -66,42 +66,42 @@ module.exports = {
             path: '/userRoleManagement'
           }
         ]
-      },
-      {
-        id: -14,
-        name: '地图样式管理',
-        pid: -1,
-        icon: 'fa fa-map-o',
-        children: [
-          {
-            id: -141,
-            name: '底图样式',
-            pid: -14,
-            icon: 'fa fa-delicious',
-            path: '/mapStyle'
-          },
-          {
-            id: -143,
-            name: '多边形样式',
-            pid: -14,
-            icon: 'fa fa-clone',
-            path: '/polygonStyle'
-          },
-          {
-            id: -144,
-            name: '折线样式',
-            pid: -14,
-            icon: 'fa fa-lastfm',
-            path: '/polylineStyle'
-          }, {
-            id: -142,
-            name: '标签样式',
-            pid: -14,
-            icon: 'fa fa-flag',
-            path: '/markStyle'
-          }
-        ]
       }
+      // {
+      //   id: -14,
+      //   name: '地图样式管理',
+      //   pid: -1,
+      //   icon: 'fa fa-map-o',
+      //   children: [
+      //     {
+      //       id: -141,
+      //       name: '底图样式',
+      //       pid: -14,
+      //       icon: 'fa fa-delicious',
+      //       path: '/mapStyle'
+      //     },
+      //     {
+      //       id: -143,
+      //       name: '多边形样式',
+      //       pid: -14,
+      //       icon: 'fa fa-clone',
+      //       path: '/polygonStyle'
+      //     },
+      //     {
+      //       id: -144,
+      //       name: '折线样式',
+      //       pid: -14,
+      //       icon: 'fa fa-lastfm',
+      //       path: '/polylineStyle'
+      //     }, {
+      //       id: -142,
+      //       name: '标签样式',
+      //       pid: -14,
+      //       icon: 'fa fa-flag',
+      //       path: '/markStyle'
+      //     }
+      //   ]
+      // }
 
     ]
 

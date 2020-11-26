@@ -61,133 +61,49 @@ module.exports = [
     name: '标签样式管理',
     component: () => import('../components/map/style/MarkStyle')
   },
-  // 数据管理
+  //
+
   {
-    path: '/domainManagement',
-    name: '信息类别管理',
-    component: () => import('../views/category/DomainManagement')
+    path: '/SliceManage',
+    name: '岩性管理',
+    component: () => import('../views/gWell/SliceManage')
   },
   {
-    path: '/labelManagement',
-    name: '信息标签管理',
-    component: () => import('../views/category/LabelManagement')
+    path: '/SliceTypeManage',
+    name: '岩性类别',
+    component: () => import('../views/gWell/SliceTypeManage')
+  }, {
+    path: '/SliceAttrManage',
+    name: '测井类别',
+    component: () => import('../views/gWell/SliceAttrManage')
+  }, {
+    path: '/WellManage',
+    name: '气井数据',
+    component: () => import('../views/gWell/WellManage')
   },
   {
-    path: '/articleManagement',
-    name: '文章管理',
-    component: () => import('../views/data/ArticleManagement')
+    path: '/WellInfoManage',
+    name: '基础信息',
+    component: () => import('../views/gWell/WellInfoManage')
   },
   {
-    path: '/imageManagement',
-    name: '图片管理',
-    component: () => import('../views/data/ImageManagement')
+    path: '/SliceCompute',
+    name: '岩性识别',
+    component: () => import('../views/gWell/SliceCompute')
   },
   {
-    path: '/videoManagement',
-    name: '视频管理',
-    component: () => import('../views/data/VideoManagement')
+    path: '/SliceTrain',
+    name: '训练数据',
+    component: () => import('../views/gWell/SliceTrain')
   },
   {
-    path: '/panoramaManagement',
-    name: '全景影像管理',
-    component: () => import('../views/data/PanoramaManagement')
-  },
-  // 公园管理
-  {
-    path: '/parkManagement',
-    name: '国家公园管理',
-    component: () => import('../views/park/ParkManagement')
+    path: '/ImageClassManage',
+    name: '图版大类',
+    component: () => import('../views/gWell/ImageClassManage')
   },
   {
-    path: '/parkBorder',
-    name: '公园边界管理',
-    component: () => import('../views/park/elements/ParkBorder')
-  },
-  {
-    path: '/parkArea',
-    name: '公园区域管理',
-    component: () => import('../views/park/elements/ParkArea')
-  },
-  {
-    path: '/parkRoad',
-    name: '公园线路管理',
-    component: () => import('../views/park/elements/ParkRoad')
-  },
-  {
-    path: '/parkFacility',
-    name: '公园设施管理',
-    component: () => import('../views/park/elements/ParkFacility')
-  },
-  // 数据监测
-  {
-    path: '/capacityMonitor',
-    name: '容量监测',
-    component: () => import('../views/monitor/CapacityMonitor')
-  },
-  {
-    path: '/environmentMonitor',
-    name: '生态监测',
-    component: () => import('../views/monitor/EnvironmentMonitor')
-  },
-  {
-    path: '/positionMonitor',
-    name: '偏航监测',
-    component: () => import('../views/monitor/PositionMonitor')
-  },
-  // 综合管理
-  {
-    path: '/tripService',
-    name: '行程审批',
-    component: () => import('../views/service/TripService')
-  },
-  {
-    path: '/storyService',
-    name: '游记审核',
-    component: () => import('../views/service/StoryService')
-  },
-  {
-    path: '/imageService',
-    name: '图片审核',
-    component: () => import('../views/service/ImageService')
-  },
-  {
-    path: '/BroadCast',
-    name: '广播',
-    component: () => import('../views/socket/BroadCast')
-  },
-  {
-    path: '/PeerToPeer',
-    name: '点对点通讯',
-    component: () => import('../views/socket/PeerToPeer')
-  },
-  {
-    path: '/IndexTable', /// //////
-    name: '决策指标',
-    component: () => import('../views/dss2/IndexTable')
-  },
-  {
-    path: '/IndexView',
-    name: '指标视图',
-    component: () => import('../views/dss2/IndexView')
-  },
-  {
-    path: '/MyTask',
-    name: '我的任务',
-    component: () => import('../views/dss2/MyTask')
-  },
-  {
-    path: '/OthersTask',
-    name: '参与任务',
-    component: () => import('../views/dss2/OthersTask')
-  },
-  {
-    path: '/TaskPublish',
-    name: '任务发布',
-    component: () => import('../views/dss2/TaskPublish')
-  },
-  {
-    path: '/IndexScale',
-    name: '指标尺度',
-    component: () => import('../views/dss2/IndexScale')
+    path: '/ImageCompute',
+    name: '图版识别',
+    component: () => import('../views/gWell/ImageCompute')
   }
 ]

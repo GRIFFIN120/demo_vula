@@ -1,5 +1,21 @@
 <template>
   <div v-if="loaded">
+
+    <BaseDialog ref="upload" title="数据批量上传" width="400px" @confirm="save" :buttons="false">
+      <template >
+        <!--  3. 引入对话框中的模版  -->
+        <download-excel
+          class = "export-excel-wrapper"
+          :data = "upload_data"
+          :fields = "upload_fields"
+          :name = "upload_title">
+          <el-button type="primary" size="small">下载数据模版</el-button>
+        </download-excel>
+        {{$base.BaseURL+entity+'/input/'+type}}
+        <CommonUpload :action="$base.BaseURL+entity+'/input/'+type"></CommonUpload>
+      </template>
+    </BaseDialog>
+
     <BaseDialog ref="dialog" :title="title" width="400px" @confirm="save">
       <template v-slot="{data}">
         <!--  3. 引入对话框中的模版  -->
@@ -100,11 +116,11 @@
 <!--          <el-tooltip v-show="true" class="item" effect="light" content="刷新表格" placement="top">-->
 <!--            <el-button  @click="initMeta(load())" type="primary" plain circle size="mini" style="margin-left: 10px"><i class="fa fa-refresh"></i></el-button>-->
 <!--          </el-tooltip>-->
-          <el-tooltip v-show="META.OPERATION.export" class="item" effect="light" content="数据上传" placement="top">
-            <el-button  type="info" circle size="mini" style="margin-left: 10px"><i class="fa fa-download"></i></el-button>
+          <el-tooltip v-show="META.OPERATION.enable" class="item" effect="light" content="数据上传" placement="top">
+            <el-button @click="openUpload" type="info" circle size="mini" style="margin-left: 10px"><i class="fa fa-upload"></i></el-button>
           </el-tooltip>
-          <el-tooltip v-show="META.OPERATION.upload" class="item" effect="light" content="数据下载" placement="top">
-            <el-button  type="info" circle size="mini" style="margin-left: 10px"><i class="fa fa-upload"></i></el-button>
+          <el-tooltip v-show="META.OPERATION.enable" class="item" effect="light" content="数据下载" placement="top">
+            <el-button  type="info" circle size="mini" style="margin-left: 10px"><i class="fa fa-download"></i></el-button>
           </el-tooltip>
           <el-tooltip v-show="true||META.OPERATION.search" class="item" effect="light" content="检索数据" placement="top">
             <el-button @click="openSearch" type="primary" circle size="mini" style="margin-left: 10px"><i class="fa fa-search"></i></el-button>
@@ -166,6 +182,7 @@ import BaseForm from './BaseForm'
 import BaseDrawer from './BaseDrawer'
 import SearchForm from './search/SearchForm'
 import BaseTransfer from './BaseTransfer'
+import CommonUpload from '../common/CommonUpload'
 
 export default {
   name: 'index',
@@ -175,9 +192,25 @@ export default {
     BaseForm,
     BaseDrawer,
     SearchForm,
-    BaseTransfer
+    BaseTransfer,
+    CommonUpload
   },
   mixins: [mix],
+
+  data () {
+    return {
+      upload_fields: {
+        id: 'id',
+        name: 'name',
+        description: 'description'
+      },
+      upload_data: [
+        { id: '', name: '', description: '' }
+      ],
+      upload_title: 'template.xls'
+    }
+  },
+
   methods: {
     transfer (data) {
       const value = this.$refs.trans.getValue()
@@ -217,9 +250,14 @@ export default {
     },
     save (data) {
       const item = this.$refs.form.getData()
+      // item = this.$utils.objectMerge(item, data)
+      //
+      //
       if (data.id) {
         item.id = data.id
       }
+      console.log(data)
+      console.log(item)
 
       this.$base.update(this.entity, item)
         .then(res => {
@@ -230,6 +268,23 @@ export default {
     openSearch () {
       this.$refs.drawer.open(this.search)
     },
+    openUpload () {
+      const empty = {}
+      const fields = {}
+
+      this.META.COLUMNS.filter(function (e) {
+        const key = e.prop
+        empty[key] = ''
+        fields[key] = key
+      })
+
+      this.upload_fields = fields
+      this.upload_data = [empty]
+      this.upload_title = this.entity + '-' + this.type + '.xls'
+
+      this.$refs.upload.open()
+    },
+
     openInsert () {
       this.title = '新增数据'
       this.editable = true

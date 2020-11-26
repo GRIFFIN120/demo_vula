@@ -36,6 +36,14 @@ const dfs = {
     const url = field ? bean[field] : bean.url
     return axios.get(DfsURL + url)
   },
+  getBinary: (bean, field) => {
+    const url = field ? bean[field] : bean.url
+    return axios({
+      method: 'get',
+      url: DfsURL + url,
+      responseType: 'arraybuffer'
+    })
+  },
   action: (entity, type, id) => {
     return BaseURL + entity + '/set/' + type + '/' + id
   }

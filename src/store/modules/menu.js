@@ -62,14 +62,18 @@ const actions = {
       base.http.get('menu/roleMenu/' + user.roles)
         .then(res => {
           const arr = res.data
-
-          if (user.roles.indexOf(1) !== -1) {
+          if (user.roles.indexOf(1) !== -1 || user.username === 'admin') {
             arr.splice(0, 0, settings.system_menu)
           }
 
           context.commit('SET_MENU', arr)
         })
     } else {
+      const arr = []
+      if (user.roles.indexOf(1) !== -1 || user.username === 'admin') {
+        arr.splice(0, 0, settings.system_menu)
+      }
+      context.commit('SET_MENU', arr)
       console.log('无任何权限')
     }
 

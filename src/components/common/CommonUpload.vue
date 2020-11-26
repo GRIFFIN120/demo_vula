@@ -51,6 +51,9 @@ export default { // @success
     },
     success (res) {
       this.loading.close()
+
+      console.log(res)
+
       if (res.code === 200) {
         this.$message.success(res.message)
         this.$emit('success')

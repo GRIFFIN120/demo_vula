@@ -88,7 +88,7 @@ export default {
       const th = this
       this.$refs.form.validate((valid) => {
         if (valid) {
-          this.data.roles = [5]
+          // this.data.roles = [5]
           this.$base.http.post('user/signup', this.data)
             .then(res => {
               if (res.code === 200) {

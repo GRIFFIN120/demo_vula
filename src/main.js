@@ -19,6 +19,9 @@ import 'video.js/dist/video-js.css'
 
 import AMap from 'AMap'
 
+import JsonExcel from 'vue-json-excel'
+Vue.component('downloadExcel', JsonExcel)
+
 Vue.use(AMap)
 Vue.use(VueVideoPlayer)
 

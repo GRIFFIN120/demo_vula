@@ -1,15 +1,18 @@
 <template>
   <div>
-    <BaseTree ref="tree" entity="menu" type="edit" :search="treeSearch" :defaultExpandAll="true" :label="menuLabel" @modified="$store.dispatch('menu/getMenu')" >
-      <template #operation="{item}">
-        <el-button :item="item" circle size="small" type="success" @click="hide" icon="fa fa-eye-slash"></el-button>
-      </template>
+    <BaseTree ref="tree" entity="menu" type="edit" :search="treeSearch"
+              :defaultExpandAll="true"
+              :label="menuLabel"
+              @modified="$store.dispatch('menu/getMenu')" >
+<!--      <template #operation="{item}">-->
+<!--        <el-button :item="item" circle size="small" type="success" @click="hide" icon="fa fa-eye-slash"></el-button>-->
+<!--      </template>-->
     </BaseTree>
   </div>
 </template>
 
 <script>
-import BaseTree from '../tree/index'
+import BaseTree from '../BaseTree'
 export default {
   components: {
     BaseTree
@@ -30,7 +33,7 @@ export default {
       const keys = this.$refs.tree.getCheckedKeys()
       const arr = []
       keys.filter(function (e) {
-        arr.push({ id: e, domain: 'npims' })
+        arr.push({ id: e })
       })
 
       this.$base.http.post('menu/update/all', arr)

@@ -18,6 +18,14 @@ export default {
       type: Function
     }
   },
+  watch: {
+    filterText (val) {
+      this.$refs.elTree.filter(val)
+    },
+    checked () {
+      this.$refs.elTree.setCheckedKeys(this.checked)
+    }
+  },
   data () {
     return {
       meta: [],
