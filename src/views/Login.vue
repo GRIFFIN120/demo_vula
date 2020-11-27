@@ -3,7 +3,7 @@
     <div class="login-box">
 
         <el-row ><el-col align="center" style="padding-top: 25px">
-          <h2>{{$settings.title}}</h2>
+          <h3>{{$settings.title}}</h3>
         </el-col></el-row>
 
 <!--      <div class="login-avatar">-->
@@ -101,7 +101,7 @@ export default {
     height: 100%;
   }
   .login-box{
-    width: 400px;
+    width: 500px;
     height: 300px;
     background-color: #fff;
     border-radius: 10px;
